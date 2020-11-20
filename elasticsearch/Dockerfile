@@ -1,8 +1,6 @@
 FROM balenalib/raspberrypi3-debian:latest
 
-MAINTAINER Idriss Neumann <idriss.neumann@comwork.io>
-
-ENV ES_VERSION 7.5.1
+ENV ES_VERSION 7.9.1
 ENV ES_OS linux
 ENV ES_ARCH x86_64
 ENV ES_HOME /usr/share/elasticsearch

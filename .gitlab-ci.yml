@@ -1,0 +1,38 @@
+stages:
+  - publish
+
+github-mirror:
+  stage: publish
+  script:
+    - setsid ./ci/github-mirror.sh
+  only:
+    - /^(master.*)$/
+  tags:
+    - elasticlifecycle
+
+elastalert-arm:
+  stage: publish
+  script:
+    - setsid ./ci/docker-deliver.sh "arm" "elastalert" "1.0"
+  only:
+    - /^(master.*)$/
+  tags:
+    - buildarm
+
+elasticsearch-arm:
+  stage: publish
+  script:
+    - setsid ./ci/docker-deliver.sh "arm" "elasticsearch" "7.9.1"
+  only:
+    - /^(master.*)$/
+  tags:
+    - buildarm
+
+kibana-arm:
+  stage: publish
+  script:
+    - setsid ./ci/docker-deliver.sh "arm" "kibana" "7.9.1"
+  only:
+    - /^(master.*)$/
+  tags:
+    - buildarm

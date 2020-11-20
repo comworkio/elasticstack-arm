@@ -1,6 +1,6 @@
 FROM balenalib/raspberrypi3-debian:latest
 
-ENV ES_VERSION 7.5.1
+ENV ES_VERSION 7.9.1
 ENV ES_OS linux
 ENV ES_ARCH x86_64
 ENV JAVA_VERSION 11

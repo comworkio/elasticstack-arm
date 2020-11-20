@@ -1,9 +1,5 @@
 FROM balenalib/raspberrypi3-debian:latest
 
-MAINTAINER Idriss Neumann <idriss.neumann@comwork.io>
-
-LABEL Description="elasticsearch elastalert"
-
 RUN apt-get update -y && \
     apt-get install curl telnet net-tools wget python3 python3-pip libmagic1 libmagic-dev libmagic-mgc -y && \
     pip3 install python-magic && \
