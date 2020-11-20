@@ -15,4 +15,4 @@ services:
     image: comworkio/kibana
     build:
       context: kibana
-      dockerfile: dockerfile
+      dockerfile: Dockerfile

@@ -1,24 +1,23 @@
 FROM balenalib/raspberrypi3-debian:latest
 
-ENV ES_VERSION 7.9.1
-ENV ES_OS linux
-ENV ES_ARCH x86_64
-ENV ES_HOME /usr/share/elasticsearch
-ENV ES_EXEC elasticsearch
-ENV ES_LOG_DIR $ES_HOME/logs
-ENV ES_DATA_DIR $ES_HOME/data
-ENV ES_TMP_DIR $ES_HOME/tmp
-ENV ES_HOST 0.0.0.0
-ENV ES_NODE_NAME elasticsearch
-ENV ES_HEAP 2g
-ENV ES_DISCOVERY_TYPE single-node
-ENV ES_TRANSPORT_PORT 9300
-ENV ES_HTTP_PORT 9200
-
-ENV JAVA_VERSION 11
-ENV PATH /usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/sbin:/usr/sbin:/usr/share/elasticsearch/bin
-ENV JAVA_HOME /usr/lib/jvm/java-$JAVA_VERSION-openjdk-armhf
-ENV ES_JAVA_OPTS "-Djava.io.tmpdir=$ES_TMP_DIR -Djna.tmpdir=$ES_TMP_DIR"
+ENV ES_VERSION=7.9.1 \
+    ES_OS=linux \
+    ES_ARCH=x86_64 \
+    ES_HOME=/usr/share/elasticsearch \
+    ES_EXEC=elasticsearch \
+    ES_LOG_DIR=$ES_HOME/logs \
+    ES_DATA_DIR=$ES_HOME/data \
+    ES_TMP_DIR=$ES_HOME/tmp \
+    ES_HOST=0.0.0.0 \
+    ES_NODE_NAME=elasticsearch \
+    ES_HEAP=2g \
+    ES_DISCOVERY_TYPE=single-node \
+    ES_TRANSPORT_PORT=9300 \
+    ES_HTTP_PORT=9200 \
+    JAVA_VERSION=11 \
+    PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/sbin:/usr/sbin:/usr/share/elasticsearch/bin \
+    JAVA_HOME=/usr/lib/jvm/java-$JAVA_VERSION-openjdk-armhf \
+    ES_JAVA_OPTS="-Djava.io.tmpdir=$ES_TMP_DIR -Djna.tmpdir=$ES_TMP_DIR"
 
 RUN apt-get update && \
   apt-get -qy install curl ca-certificates openjdk-$JAVA_VERSION-jdk openjdk-$JAVA_VERSION-jre telnet net-tools && \
