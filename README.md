@@ -11,4 +11,8 @@ The docker images are built on a raspberry pi gitlab runner.
 * ElastAlert
 * Elastic Indices Lifecyle : the [elastic-indices-lifecycle](https://gitlab.comwork.io/oss/elasticstack/elastic-indices-lifecycle)
 
+# Git repositories
+
+* main repo: https://gitlab.comwork.io/oss/elasticstack/elasticstack-arm
+* github backup mirror: https://github.com/idrissneumann/elasticstack-arm
 ## Docker repositories

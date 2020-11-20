@@ -9,10 +9,10 @@ services:
   elastalert:
     image: comworkio/elastalert
     build:
-      context: docker/elastalert
+      context: elastalert
       dockerfile: Dockerfile
   kibana:
     image: comworkio/kibana
     build:
-      context: docker/kibana
+      context: kibana
       dockerfile: dockerfile
