@@ -15,7 +15,10 @@ elastalert-arm:
   script:
     - setsid ./ci/docker-deliver.sh "arm" "elastalert" "1.0"
   only:
-    - /^(master.*)$/
+    refs:
+      - /^(master.*)$/
+    changes:
+      - elastalert/*
   tags:
     - buildarm
 
@@ -24,7 +27,10 @@ elasticsearch-arm:
   script:
     - setsid ./ci/docker-deliver.sh "arm" "elasticsearch" "7.9.1"
   only:
-    - /^(master.*)$/
+    refs:
+      - /^(master.*)$/
+    changes:
+      - elasticsearch/*
   tags:
     - buildarm
 
@@ -33,6 +39,9 @@ kibana-arm:
   script:
     - setsid ./ci/docker-deliver.sh "arm" "kibana" "7.9.1"
   only:
-    - /^(master.*)$/
+    refs:
+      - /^(master.*)$/
+    changes:
+      - kibana/*
   tags:
     - buildarm
