@@ -16,10 +16,9 @@ ENV ES_VERSION=7.9.1 \
     JAVA_VERSION=11 \
     PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/sbin:/usr/sbin:/usr/share/elasticsearch/bin
 
-ENV JAVA_HOME="/usr/lib/jvm/java-${JAVA_VERSION}-openjdk-armhf" \
-    ES_JAVA_OPTS="-Djava.io.tmpdir=${ES_TMP_DIR} -Djna.tmpdir=${ES_TMP_DIR}"
-
-RUN apt-get update && \
+RUN export JAVA_HOME="/usr/lib/jvm/java-$JAVA_VERSION-openjdk-armhf" && \
+  export ES_JAVA_OPTS="-Djava.io.tmpdir=$ES_TMP_DIR -Djna.tmpdir=$ES_TMP_DIR" && \
+  apt-get update && \
   apt-get -qy install curl ca-certificates openjdk-$JAVA_VERSION-jdk openjdk-$JAVA_VERSION-jre telnet net-tools && \
   curl -fsSL https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-$ES_VERSION-$ES_OS-$ES_ARCH.tar.gz -o elasticsearch.tgz && \
   tar xvzf elasticsearch.tgz && \

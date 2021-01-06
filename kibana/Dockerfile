@@ -12,9 +12,8 @@ ENV ES_VERSION=7.9.1 \
     ES_PROTO=http \
     NODE_VERSION=10.15.2*
 
-ENV JAVA_HOME="/usr/lib/jvm/java-${JAVA_VERSION}-openjdk-armhf"
-
-RUN apt-get update && \
+RUN export JAVA_HOME="/usr/lib/jvm/java-$JAVA_VERSION-openjdk-armhf" && \
+  apt-get update && \
   apt-get -qy install curl ca-certificates openjdk-$JAVA_VERSION-jdk openjdk-$JAVA_VERSION-jre telnet net-tools nodejs=$NODE_VERSION && \
   curl -fsSL https://artifacts.elastic.co/downloads/kibana/kibana-$ES_VERSION-$ES_OS-$ES_ARCH.tar.gz -o kibana.tgz && \
   tar xvzf kibana.tgz && \
