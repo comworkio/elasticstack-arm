@@ -16,8 +16,8 @@ ENV ES_VERSION=7.9.1 \
     ES_HTTP_PORT=9200 \
     JAVA_VERSION=11 \
     PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/sbin:/usr/sbin:/usr/share/elasticsearch/bin \
-    JAVA_HOME="/usr/lib/jvm/java-${JAVA_VERSION}-openjdk-armhf" \
-    ES_JAVA_OPTS="-Djava.io.tmpdir=${ES_TMP_DIR} -Djna.tmpdir=${ES_TMP_DIR}"
+    JAVA_HOME="/usr/lib/jvm/java-\${JAVA_VERSION}-openjdk-armhf" \
+    ES_JAVA_OPTS="-Djava.io.tmpdir=\${ES_TMP_DIR} -Djna.tmpdir=\${ES_TMP_DIR}"
 
 RUN apt-get update && \
   apt-get -qy install curl ca-certificates openjdk-$JAVA_VERSION-jdk openjdk-$JAVA_VERSION-jre telnet net-tools && \
