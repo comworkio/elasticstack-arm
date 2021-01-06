@@ -9,13 +9,13 @@ ENV ES_VERSION=7.9.1 \
     SERVER_HOST=0.0.0.0 \
     ES_PORT=9200 \
     ES_PROTO=http \
-    NODE_VERSION=10.15.2*
+    NODE_VERSION=10.*
 
 COPY ./kibana_env.sh /
 
 RUN chmod +x /kibana_env.sh && \
   apt-get update && \
-  apt-get -qy install bash curl ca-certificates openjdk-$JAVA_VERSION-jdk openjdk-$JAVA_VERSION-jre telnet net-tools nodejs=$NODE_VERSION && \
+  apt-get -qy install nodejs=$NODE_VERSION bash curl ca-certificates openjdk-$JAVA_VERSION-jdk openjdk-$JAVA_VERSION-jre telnet net-tools && \
   curl -fsSL https://artifacts.elastic.co/downloads/kibana/kibana-$ES_VERSION-$ES_OS-$ES_ARCH.tar.gz -o kibana.tgz && \
   tar xvzf kibana.tgz && \
   mv kibana-$ES_VERSION-$ES_OS-$ES_ARCH $KIBANA_HOME && \
