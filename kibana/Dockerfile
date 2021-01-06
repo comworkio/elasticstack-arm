@@ -5,13 +5,14 @@ ENV ES_VERSION=7.9.1 \
     ES_ARCH=x86_64 \
     JAVA_VERSION=11 \
     PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/sbin:/usr/sbin:/usr/share/elasticsearch/bin \
-    JAVA_HOME=/usr/lib/jvm/java-$JAVA_VERSION-openjdk-armhf \
     KIBANA_HOME=/usr/share/kibana \
     ES_HOST=192.168.100.180 \
     SERVER_HOST=0.0.0.0 \
     ES_PORT=9200 \
     ES_PROTO=http \
     NODE_VERSION=10.15.2*
+
+ENV JAVA_HOME="/usr/lib/jvm/java-${JAVA_VERSION}-openjdk-armhf"
 
 RUN apt-get update && \
   apt-get -qy install curl ca-certificates openjdk-$JAVA_VERSION-jdk openjdk-$JAVA_VERSION-jre telnet net-tools nodejs=$NODE_VERSION && \
