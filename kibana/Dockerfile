@@ -14,9 +14,8 @@ ENV ES_VERSION=7.9.1 \
 COPY ./kibana_env.sh /
 
 RUN chmod +x /kibana_env.sh && \
-  source kibana_env.sh && \
   apt-get update && \
-  apt-get -qy install curl ca-certificates openjdk-$JAVA_VERSION-jdk openjdk-$JAVA_VERSION-jre telnet net-tools nodejs=$NODE_VERSION && \
+  apt-get -qy install bash curl ca-certificates openjdk-$JAVA_VERSION-jdk openjdk-$JAVA_VERSION-jre telnet net-tools nodejs=$NODE_VERSION && \
   curl -fsSL https://artifacts.elastic.co/downloads/kibana/kibana-$ES_VERSION-$ES_OS-$ES_ARCH.tar.gz -o kibana.tgz && \
   tar xvzf kibana.tgz && \
   mv kibana-$ES_VERSION-$ES_OS-$ES_ARCH $KIBANA_HOME && \
@@ -29,4 +28,4 @@ RUN chmod +x /kibana_env.sh && \
 
 EXPOSE 5601
 
-CMD [ "/bin/sh", "-c", "source /kibana_env.sh && sed -i \"s/ES_PROTO/\$ES_PROTO/g;s/ES_HOST/\$ES_HOST/g;s/ES_PORT/\$ES_PORT/g\" \$KIBANA_HOME/config/kibana.yml && /usr/share/kibana/kibana_start.sh" ]
+CMD [ "/bin/bash", "-c", "source /kibana_env.sh && sed -i \"s/ES_PROTO/\$ES_PROTO/g;s/ES_HOST/\$ES_HOST/g;s/ES_PORT/\$ES_PORT/g\" \$KIBANA_HOME/config/kibana.yml && /usr/share/kibana/kibana_start.sh" ]
