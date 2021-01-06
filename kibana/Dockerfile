@@ -4,7 +4,6 @@ ENV ES_VERSION=7.9.1 \
     ES_OS=linux \
     ES_ARCH=x86_64 \
     JAVA_VERSION=11 \
-    PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/sbin:/usr/sbin:/usr/share/elasticsearch/bin \
     KIBANA_HOME=/usr/share/kibana \
     ES_HOST=192.168.100.180 \
     SERVER_HOST=0.0.0.0 \
@@ -12,7 +11,10 @@ ENV ES_VERSION=7.9.1 \
     ES_PROTO=http \
     NODE_VERSION=10.15.2*
 
-RUN export JAVA_HOME="/usr/lib/jvm/java-$JAVA_VERSION-openjdk-armhf" && \
+COPY ./kibana_env.sh /
+
+RUN chmod +x /kibana_env.sh && \
+  source kibana_env.sh && \
   apt-get update && \
   apt-get -qy install curl ca-certificates openjdk-$JAVA_VERSION-jdk openjdk-$JAVA_VERSION-jre telnet net-tools nodejs=$NODE_VERSION && \
   curl -fsSL https://artifacts.elastic.co/downloads/kibana/kibana-$ES_VERSION-$ES_OS-$ES_ARCH.tar.gz -o kibana.tgz && \
@@ -27,4 +29,4 @@ RUN export JAVA_HOME="/usr/lib/jvm/java-$JAVA_VERSION-openjdk-armhf" && \
 
 EXPOSE 5601
 
-CMD [ "/bin/sh", "-c", "sed -i \"s/ES_PROTO/\$ES_PROTO/g;s/ES_HOST/\$ES_HOST/g;s/ES_PORT/\$ES_PORT/g\" \$KIBANA_HOME/config/kibana.yml && /usr/share/kibana/kibana_start.sh" ]
+CMD [ "/bin/sh", "-c", "source /kibana_env.sh && sed -i \"s/ES_PROTO/\$ES_PROTO/g;s/ES_HOST/\$ES_HOST/g;s/ES_PORT/\$ES_PORT/g\" \$KIBANA_HOME/config/kibana.yml && /usr/share/kibana/kibana_start.sh" ]

@@ -4,20 +4,18 @@ ENV ES_VERSION=7.9.1 \
     ES_OS=linux \
     ES_ARCH=x86_64 \
     ES_EXEC=elasticsearch \
-    ES_LOG_DIR=$ES_HOME/logs \
-    ES_DATA_DIR=$ES_HOME/data \
-    ES_TMP_DIR=$ES_HOME/tmp \
     ES_HOST=0.0.0.0 \
     ES_NODE_NAME=elasticsearch \
     ES_DISCOVERY_TYPE=single-node \
     ES_HEAP=2g \
     ES_TRANSPORT_PORT=9300 \
     ES_HTTP_PORT=9200 \
-    JAVA_VERSION=11 \
-    PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/sbin:/usr/sbin:/usr/share/elasticsearch/bin
+    JAVA_VERSION=11
 
-RUN export JAVA_HOME="/usr/lib/jvm/java-$JAVA_VERSION-openjdk-armhf" && \
-  export ES_JAVA_OPTS="-Djava.io.tmpdir=$ES_TMP_DIR -Djna.tmpdir=$ES_TMP_DIR" && \
+COPY ./elastic_env.sh /
+
+RUN chmod +x /elastic_env.sh && \
+  source /elastic_env.sh && \
   apt-get update && \
   apt-get -qy install curl ca-certificates openjdk-$JAVA_VERSION-jdk openjdk-$JAVA_VERSION-jre telnet net-tools && \
   curl -fsSL https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-$ES_VERSION-$ES_OS-$ES_ARCH.tar.gz -o elasticsearch.tgz && \
@@ -33,4 +31,4 @@ RUN export JAVA_HOME="/usr/lib/jvm/java-$JAVA_VERSION-openjdk-armhf" && \
 
 EXPOSE 9200 9300
 
-CMD [ "/bin/sh", "-c", "/usr/share/elasticsearch/es_start.sh" ]
+CMD [ "/bin/sh", "-c", "source /elastic_env.sh && /usr/share/elasticsearch/es_start.sh" ]
