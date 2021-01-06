@@ -10,7 +10,8 @@ ENV ES_VERSION=7.9.1 \
     ES_HEAP=2g \
     ES_TRANSPORT_PORT=9300 \
     ES_HTTP_PORT=9200 \
-    JAVA_VERSION=11
+    JAVA_VERSION=11 \
+    ES_HOME=/usr/share/elasticsearch
 
 COPY ./elastic_env.sh /
 
