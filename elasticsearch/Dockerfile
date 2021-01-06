@@ -3,7 +3,6 @@ FROM balenalib/raspberrypi3-debian:latest
 ENV ES_VERSION=7.9.1 \
     ES_OS=linux \
     ES_ARCH=x86_64 \
-    ES_HOME=/usr/share/elasticsearch \
     ES_EXEC=elasticsearch \
     ES_LOG_DIR=$ES_HOME/logs \
     ES_DATA_DIR=$ES_HOME/data \
@@ -15,9 +14,10 @@ ENV ES_VERSION=7.9.1 \
     ES_TRANSPORT_PORT=9300 \
     ES_HTTP_PORT=9200 \
     JAVA_VERSION=11 \
-    PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/sbin:/usr/sbin:/usr/share/elasticsearch/bin \
-    JAVA_HOME="/usr/lib/jvm/java-\${JAVA_VERSION}-openjdk-armhf" \
-    ES_JAVA_OPTS="-Djava.io.tmpdir=\${ES_TMP_DIR} -Djna.tmpdir=\${ES_TMP_DIR}"
+    PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/sbin:/usr/sbin:/usr/share/elasticsearch/bin
+
+ENV JAVA_HOME="/usr/lib/jvm/java-${JAVA_VERSION}-openjdk-armhf" \
+    ES_JAVA_OPTS="-Djava.io.tmpdir=${ES_TMP_DIR} -Djna.tmpdir=${ES_TMP_DIR}"
 
 RUN apt-get update && \
   apt-get -qy install curl ca-certificates openjdk-$JAVA_VERSION-jdk openjdk-$JAVA_VERSION-jre telnet net-tools && \
