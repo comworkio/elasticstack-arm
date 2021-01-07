@@ -13,9 +13,10 @@ ENV ES_VERSION=7.9.1 \
     JAVA_VERSION=11 \
     ES_HOME=/usr/share/elasticsearch
 
-COPY ./elastic_env.sh /
+COPY ./elastic_env.sh ./elastic_start.sh /
 
 RUN chmod +x /elastic_env.sh && \
+  chmod +x /elastic_start.sh && \
   apt-get update && \
   apt-get -qy install bash curl ca-certificates openjdk-$JAVA_VERSION-jdk openjdk-$JAVA_VERSION-jre telnet net-tools && \
   curl -fsSL https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-$ES_VERSION-$ES_OS-$ES_ARCH.tar.gz -o elasticsearch.tgz && \
@@ -30,4 +31,4 @@ VOLUME [ "/usr/share/elasticsearch/data" ]
 
 EXPOSE 9200 9300
 
-CMD [ "/bin/bash", "-c", "source /elastic_env.sh && /usr/share/elasticsearch/es_start.sh" ]
+CMD [ "/elastic_start.sh" ]

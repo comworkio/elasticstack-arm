@@ -11,9 +11,10 @@ ENV ES_VERSION=7.9.1 \
     ES_PROTO=http \
     NODE_VERSION=10.*
 
-COPY ./kibana_env.sh /
+COPY ./kibana_env.sh ./kibana_start.sh /
 
 RUN chmod +x /kibana_env.sh && \
+  chmod +x /kibana_start.sh && \
   apt-get update && \
   apt-get -qy install nodejs=$NODE_VERSION bash curl ca-certificates openjdk-$JAVA_VERSION-jdk openjdk-$JAVA_VERSION-jre telnet net-tools && \
   curl -fsSL https://artifacts.elastic.co/downloads/kibana/kibana-$ES_VERSION-$ES_OS-$ES_ARCH.tar.gz -o kibana.tgz && \
@@ -28,4 +29,4 @@ RUN chmod +x /kibana_env.sh && \
 
 EXPOSE 5601
 
-CMD [ "/bin/bash", "-c", "source /kibana_env.sh && sed -i \"s/ES_PROTO/\$ES_PROTO/g;s/ES_HOST/\$ES_HOST/g;s/ES_PORT/\$ES_PORT/g\" \$KIBANA_HOME/config/kibana.yml && /usr/share/kibana/kibana_start.sh" ]
+CMD [ "/kibana_start.sh" ]
