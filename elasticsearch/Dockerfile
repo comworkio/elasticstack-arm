@@ -20,7 +20,7 @@ RUN chmod +x /elastic_env.sh && \
   apt-get update && \
   apt-get -qy install bash curl ca-certificates openjdk-$JAVA_VERSION-jdk openjdk-$JAVA_VERSION-jre telnet net-tools && \
   curl -fsSL https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-$ES_VERSION-$ES_OS-$ES_ARCH.tar.gz -o elasticsearch.tgz && \
-  tar xvzf elasticsearch.tgz && \
+  tar xvzf elasticsearch.tgz > /dev/null 2>&1 && \
   mv elasticsearch-$ES_VERSION $ES_HOME && \
   rm -rf elasticsearch.tgz && \
   sed -i "s/Xms1g/Xms$ES_HEAP/g;s/Xmx1g/Xmx$ES_HEAP/g" $ES_HOME/config/jvm.options && \

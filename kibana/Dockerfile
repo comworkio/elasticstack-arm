@@ -18,7 +18,7 @@ RUN chmod +x /kibana_env.sh && \
   apt-get update && \
   apt-get -qy install nodejs=$NODE_VERSION bash curl ca-certificates openjdk-$JAVA_VERSION-jdk openjdk-$JAVA_VERSION-jre telnet net-tools && \
   curl -fsSL https://artifacts.elastic.co/downloads/kibana/kibana-$ES_VERSION-$ES_OS-$ES_ARCH.tar.gz -o kibana.tgz && \
-  tar xvzf kibana.tgz && \
+  tar xvzf kibana.tgz > /dev/null 2>&1 && \
   mv kibana-$ES_VERSION-$ES_OS-$ES_ARCH $KIBANA_HOME && \
   rm -rf kibana-$ES_VERSION-$ES_OS-$ES_ARCH && \
   sed -i "s/.*NODE\=.*/NODE=\/usr\/bin\/node/g" $KIBANA_HOME/bin/kibana && \
