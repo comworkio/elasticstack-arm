@@ -16,3 +16,10 @@ The docker images are built on a raspberry pi gitlab runner.
 * main repo: https://gitlab.comwork.io/oss/elasticstack/elasticstack-arm
 * github backup mirror: https://github.com/idrissneumann/elasticstack-arm
 ## Docker repositories
+
+The images are available on docker hub:
+* ElasticSearch: https://hub.docker.com/repository/docker/comworkio/elasticsearch
+* Kibana: https://hub.docker.com/repository/docker/comworkio/kibana
+* ElastAlert: https://hub.docker.com/r/comworkio/elastalert
+
+Here's an example of docker-compose file to have an instance of ElasticSearch and Kibana on your raspberrypi: [here](./docker-compose-example.yml).

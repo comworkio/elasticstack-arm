@@ -1,0 +1,34 @@
+version: "3.3"
+
+services:
+  es01:
+    image: comworkio/elasticsearch:7.9.1-1.8-arm
+    container_name: es01
+    ports:
+      - 9200:9200
+      - 9300:9300
+    networks:
+      - elasticstacknet
+    volumes:
+      - data01:/usr/share/elasticsearch/data
+  kib01:
+    image: comworkio/kibana:7.9.1-1.9-arm
+    container_name: kib01
+    ports:
+      - 5601:5601
+    environment:
+      - ES_PROTO=http
+      - ES_HOST=es01
+      - ES_PORT=9200
+    networks:
+      - covidelasticstacknet19
+    depends_on: 
+      - es01
+
+volumes:
+  data01:
+    driver: local
+
+networks:
+  elasticstacknet:
+    driver: bridge
