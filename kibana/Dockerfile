@@ -31,7 +31,7 @@ RUN chmod +x /kibana_env.sh && \
   sed -i "s/.*NODE\=.*/NODE=\/usr\/bin\/node/g" $KIBANA_HOME/bin/kibana && \
   echo $KIBANA_HOME/bin/kibana --allow-root > $KIBANA_HOME/kibana_start.sh && \
   chmod +x $KIBANA_HOME/kibana_start.sh && \
-  echo "server.host: ES_HOST" >> $KIBANA_HOME/config/kibana.yml && \
+  echo "server.host: KIBANA_HOST" >> $KIBANA_HOME/config/kibana.yml && \
   echo "elasticsearch.hosts: [\"ES_PROTO://ES_HOST:ES_PORT\"]" >> $KIBANA_HOME/config/kibana.yml
 
 EXPOSE 5601
