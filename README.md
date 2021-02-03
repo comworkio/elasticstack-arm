@@ -33,8 +33,8 @@ You also can pull the images directly with the tags below.
 docker pull comworkio/elasticsearch:latest-arm
 docker pull comworkio/elasticsearch:7.10.2-arm
 docker pull comworkio/elasticsearch:7.10.2-1.0-arm
-docker pull comworkio/elasticsearch:7.10.2-arm-340c2104
-docker pull comworkio/elasticsearch:7.10.2-1.0-arm-340c2104
+docker pull comworkio/elasticsearch:7.10.2-arm-{sha}
+docker pull comworkio/elasticsearch:7.10.2-1.0-arm-{sha}
 ```
 
 ### Kibana
@@ -43,8 +43,8 @@ docker pull comworkio/elasticsearch:7.10.2-1.0-arm-340c2104
 docker pull comworkio/kibana:latest-arm
 docker pull comworkio/kibana:7.10.2-arm
 docker pull comworkio/kibana:7.10.2-1.0-arm
-docker pull comworkio/kibana:7.10.2-arm-340c2104
-docker pull comworkio/kibana:7.10.2-1.0-arm-340c2104
+docker pull comworkio/kibana:7.10.2-arm-{sha}
+docker pull comworkio/kibana:7.10.2-1.0-arm-{sha}
 ```
 
 ### Elastalert
@@ -52,5 +52,6 @@ docker pull comworkio/kibana:7.10.2-1.0-arm-340c2104
 ```shell
 docker pull comworkio/elastalert:latest-arm
 docker pull comworkio/elastalert:1.0-arm
-docker pull comworkio/elastalert:1.0-arm-add99fc9
+docker pull comworkio/elastalert:1.0-arm-{sha}
 ```
+
