@@ -37,7 +37,7 @@ elasticsearch-arm:
 kibana-arm:
   stage: publish
   script:
-    - setsid ./ci/docker-deliver.sh "arm" "kibana" "7.10.2" "1.1"
+    - setsid ./ci/docker-deliver.sh "arm" "kibana" "7.10.2" "1.2"
   only:
     refs:
       - /^(master.*)$/

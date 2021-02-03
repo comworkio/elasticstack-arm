@@ -10,13 +10,13 @@ ENV ES_VERSION=7.10.2 \
     ES_PORT=9200 \
     ES_PROTO=http \
     NODE_HOME=/usr/share/nodejs \
-    NODE_VERSION=14.15.4 \
+    NODE_VERSION=10.23.1 \
     NODE_ARCH=armv7l
 
 COPY ./kibana_env.sh ./kibana_start.sh /
 
-RUN chmod +x /kibana_start.sh && \
-  chmod +x /kibana_env.sh && \
+RUN chmod +x /kibana_env.sh && \
+  chmod +x /kibana_start.sh && \
   apt-get update && \
   apt-get -qy install bash curl ca-certificates openjdk-$JAVA_VERSION-jdk openjdk-$JAVA_VERSION-jre telnet net-tools && \
   curl -fsSL https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$NODE_ARCH.tar.gz  -o node.tgz && \
@@ -26,8 +26,8 @@ RUN chmod +x /kibana_start.sh && \
   mv kibana-$ES_VERSION-$ES_OS-$ES_ARCH $KIBANA_HOME && \
   mv node-v$NODE_VERSION-linux-$NODE_ARCH $NODE_HOME && \
   ln -s $NODE_HOME/bin/node /usr/bin && \
-  rm -rf kibana.tgz && \
   rm -rf node.tgz && \
+  rm -rf kibana.tgz && \
   sed -i "s/.*NODE\=.*/NODE=\/usr\/bin\/node/g" $KIBANA_HOME/bin/kibana && \
   echo $KIBANA_HOME/bin/kibana --allow-root > $KIBANA_HOME/kibana_start.sh && \
   chmod +x $KIBANA_HOME/kibana_start.sh && \
