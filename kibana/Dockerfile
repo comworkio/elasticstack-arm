@@ -15,8 +15,8 @@ ENV ES_VERSION=7.10.2 \
 
 COPY ./kibana_env.sh ./kibana_start.sh /
 
-RUN chmod +x /kibana_env.sh && \
-  chmod +x /kibana_start.sh && \
+RUN chmod +x /kibana_start.sh && \
+  chmod +x /kibana_env.sh && \
   apt-get update && \
   apt-get -qy install bash curl ca-certificates openjdk-$JAVA_VERSION-jdk openjdk-$JAVA_VERSION-jre telnet net-tools && \
   curl -fsSL https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$NODE_ARCH.tar.gz  -o node.tgz && \
