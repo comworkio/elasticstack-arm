@@ -6,8 +6,8 @@ The docker images are built on a raspberry pi gitlab runner.
 
 ## Available apps
 
-* Kibana v7.9.1
-* ElasticSearch v7.9.1
+* Kibana v7.10.2
+* ElasticSearch v7.10.2
 * ElastAlert
 * Elastic Indices Lifecyle : the [elastic-indices-lifecycle](https://gitlab.comwork.io/oss/elasticstack/elastic-indices-lifecycle)
 
@@ -15,6 +15,7 @@ The docker images are built on a raspberry pi gitlab runner.
 
 * main repo: https://gitlab.comwork.io/oss/elasticstack/elasticstack-arm
 * github backup mirror: https://github.com/idrissneumann/elasticstack-arm
+
 ## Docker repositories
 
 The images are available on docker hub:
@@ -22,4 +23,34 @@ The images are available on docker hub:
 * Kibana: https://hub.docker.com/repository/docker/comworkio/kibana
 * ElastAlert: https://hub.docker.com/r/comworkio/elastalert
 
-Here's an example of docker-compose file to have an instance of ElasticSearch and Kibana on your raspberrypi: [here](./docker-compose-example.yml).
+Here's an example of docker-compose file to have an instance of ElasticSearch and Kibana on your raspberrypi: [here](./docker-compose-example.yml). You 
+
+You also can pull the images directly with the tags below.
+
+## Image tags
+
+```shell
+docker pull comworkio/elasticsearch:latest-arm
+docker pull comworkio/elasticsearch:7.10.2-arm
+docker pull comworkio/elasticsearch:7.10.2-1.0-arm
+docker pull comworkio/elasticsearch:7.10.2-arm-340c2104
+docker pull comworkio/elasticsearch:7.10.2-1.0-arm-340c2104
+```
+
+### Kibana
+
+```shell
+docker pull comworkio/kibana:latest-arm
+docker pull comworkio/kibana:7.10.2-arm
+docker pull comworkio/kibana:7.10.2-1.0-arm
+docker pull comworkio/kibana:7.10.2-arm-340c2104
+docker pull comworkio/kibana:7.10.2-1.0-arm-340c2104
+```
+
+### Elastalert
+
+```shell
+docker pull comworkio/elastalert:latest-arm
+docker pull comworkio/elastalert:1.0-arm
+docker pull comworkio/elastalert:1.0-arm-add99fc9
+```
