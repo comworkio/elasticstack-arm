@@ -15,6 +15,7 @@ The docker images are built on a raspberry pi gitlab runner.
 
 * main repo: https://gitlab.comwork.io/oss/elasticstack/elasticstack-arm
 * github backup mirror: https://github.com/idrissneumann/elasticstack-arm
+* gitlab backup mirror: https://gitlab.com/ineumann/elasticstack-arm
 
 ## Docker repositories
 
