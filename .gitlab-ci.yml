@@ -1,7 +1,7 @@
 stages:
   - publish
 
-github-mirror:
+mirror:
   stage: publish
   script:
     - setsid ./ci/mirror.sh
