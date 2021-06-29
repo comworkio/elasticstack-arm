@@ -29,7 +29,9 @@ RUN chmod +x /kibana_env.sh && \
   ln -s $NODE_HOME/bin/npm /usr/bin && \
   rm -rf $KIBANA_HOME/node_modules/re2 && \
   tar xvzf re2.tgz > /dev/null 2>&1 && \
-  mv re2 $KIBANA_HOME/node_modules && \
+  mv node_modules/re2 $KIBANA_HOME/node_modules && \
+  rm -rf node_modules && \
+  rm -rf re2.tgz && \
   rm -rf node.tgz && \
   rm -rf kibana.tgz && \
   sed -i "s/.*NODE\=.*/NODE=\/usr\/bin\/node/g" $KIBANA_HOME/bin/kibana && \
