@@ -26,6 +26,10 @@ RUN chmod +x /kibana_env.sh && \
   mv kibana-$ES_VERSION-$ES_OS-$ES_ARCH $KIBANA_HOME && \
   mv node-v$NODE_VERSION-linux-$NODE_ARCH $NODE_HOME && \
   ln -s $NODE_HOME/bin/node /usr/bin && \
+  ln -s $NODE_HOME/bin/npm /usr/bin && \
+  rm -rf $KIBANA_HOME/node_modules/re2 && \
+  npm install re2 && \
+  mv ~/node_module/re2 $KIBANA_HOME/node_modules && \
   rm -rf node.tgz && \
   rm -rf kibana.tgz && \
   sed -i "s/.*NODE\=.*/NODE=\/usr\/bin\/node/g" $KIBANA_HOME/bin/kibana && \
