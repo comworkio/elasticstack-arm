@@ -37,6 +37,7 @@ RUN chmod +x /kibana_env.sh && \
   mv $NODE_BUILD_HOME/node_modules/re2 $KIBANA_HOME/node_modules && \
   rm -rf node.tgz && \
   rm -rf kibana.tgz && \
+  rm -rf $NODE_BUILD_HOME && \
   sed -i "s/.*NODE\=.*/NODE=\/usr\/bin\/node/g" $KIBANA_HOME/bin/kibana && \
   echo $KIBANA_HOME/bin/kibana --allow-root > $KIBANA_HOME/kibana_start.sh && \
   chmod +x $KIBANA_HOME/kibana_start.sh && \
