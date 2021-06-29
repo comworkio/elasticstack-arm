@@ -10,11 +10,10 @@ ENV ES_VERSION=7.13.2 \
     ES_PORT=9200 \
     ES_PROTO=http \
     NODE_HOME=/usr/share/nodejs \
-    NODE_BUILD_HOME=/usr/share/nodebuild \
     NODE_VERSION=14.16.1 \
     NODE_ARCH=armv7l
 
-COPY ./kibana_env.sh ./kibana_start.sh /
+COPY ./kibana_env.sh ./kibana_start.sh ./re2.tgz /
 
 RUN chmod +x /kibana_env.sh && \
   chmod +x /kibana_start.sh && \
@@ -29,12 +28,8 @@ RUN chmod +x /kibana_env.sh && \
   ln -s $NODE_HOME/bin/node /usr/bin && \
   ln -s $NODE_HOME/bin/npm /usr/bin && \
   rm -rf $KIBANA_HOME/node_modules/re2 && \
-  mkdir -p $NODE_BUILD_HOME && \
-  cd $NODE_BUILD_HOME && \
-  npm init && \
-  npm ci re2 --save && \
-  cd - && \
-  mv $NODE_BUILD_HOME/node_modules/re2 $KIBANA_HOME/node_modules && \
+  tar xvzf re2.tgz > /dev/null 2>&1 && \
+  mv re2 $KIBANA_HOME/node_modules && \
   rm -rf node.tgz && \
   rm -rf kibana.tgz && \
   rm -rf $NODE_BUILD_HOME && \
