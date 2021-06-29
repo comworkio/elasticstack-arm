@@ -37,6 +37,14 @@ RUN chmod +x /kibana_env.sh && \
   sed -i "s/.*NODE\=.*/NODE=\/usr\/bin\/node/g" $KIBANA_HOME/bin/kibana && \
   echo $KIBANA_HOME/bin/kibana --allow-root > $KIBANA_HOME/kibana_start.sh && \
   chmod +x $KIBANA_HOME/kibana_start.sh && \
+  echo "xpack.apm.enabled: false" >> $KIBANA_HOME/config/kibana.yml && \
+  echo "xpack.grokdebugger.enabled: false" >> $KIBANA_HOME/config/kibana.yml && \
+  echo "xpack.searchprofiler.enabled: false" >> $KIBANA_HOME/config/kibana.yml && \
+  echo "xpack.graph.enabled: false" >> $KIBANA_HOME/config/kibana.yml && \
+  echo "xpack.ml.enabled: false" >> $KIBANA_HOME/config/kibana.yml && \
+  echo "xpack.monitoring.enabled: false" >> $KIBANA_HOME/config/kibana.yml && \
+  echo "xpack.reporting.enabled: false" >> $KIBANA_HOME/config/kibana.yml && \
+  echo "xpack.security.enabled: false" >> $KIBANA_HOME/config/kibana.yml && \
   echo "server.host: KIBANA_HOST" >> $KIBANA_HOME/config/kibana.yml && \
   echo "elasticsearch.hosts: [\"ES_PROTO://ES_HOST:ES_PORT\"]" >> $KIBANA_HOME/config/kibana.yml
 
