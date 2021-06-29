@@ -1,6 +1,6 @@
 FROM balenalib/raspberrypi3-debian:latest
 
-ENV ES_VERSION=7.10.2 \
+ENV ES_VERSION=7.13.2 \
     ES_OS=linux \
     ES_ARCH=x86_64 \
     ES_EXEC=elasticsearch \

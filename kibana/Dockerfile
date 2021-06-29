@@ -1,6 +1,6 @@
 FROM balenalib/raspberrypi3-debian:latest
 
-ENV ES_VERSION=7.10.2 \
+ENV ES_VERSION=7.13.2 \
     ES_OS=linux \
     ES_ARCH=x86_64 \
     JAVA_VERSION=11 \
@@ -10,7 +10,7 @@ ENV ES_VERSION=7.10.2 \
     ES_PORT=9200 \
     ES_PROTO=http \
     NODE_HOME=/usr/share/nodejs \
-    NODE_VERSION=10.23.1 \
+    NODE_VERSION=14.17.0 \
     NODE_ARCH=armv7l
 
 COPY ./kibana_env.sh ./kibana_start.sh /

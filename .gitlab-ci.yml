@@ -25,7 +25,7 @@ elastalert-arm:
 elasticsearch-arm:
   stage: publish
   script:
-    - setsid ./ci/docker-deliver.sh "arm" "elasticsearch" "7.10.2" "1.0"
+    - setsid ./ci/docker-deliver.sh "arm" "elasticsearch" "7.13.2" "1.0"
   only:
     refs:
       - /^(master.*)$/
@@ -37,7 +37,7 @@ elasticsearch-arm:
 kibana-arm:
   stage: publish
   script:
-    - setsid ./ci/docker-deliver.sh "arm" "kibana" "7.10.2" "1.2"
+    - setsid ./ci/docker-deliver.sh "arm" "kibana" "7.13.2" "1.0"
   only:
     refs:
       - /^(master.*)$/
