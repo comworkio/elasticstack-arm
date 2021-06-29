@@ -10,6 +10,7 @@ ENV ES_VERSION=7.13.2 \
     ES_PORT=9200 \
     ES_PROTO=http \
     NODE_HOME=/usr/share/nodejs \
+    NODE_BUILD_HOME=/usr/share/nodebuild \
     NODE_VERSION=14.16.1 \
     NODE_ARCH=armv7l
 
@@ -28,8 +29,10 @@ RUN chmod +x /kibana_env.sh && \
   ln -s $NODE_HOME/bin/node /usr/bin && \
   ln -s $NODE_HOME/bin/npm /usr/bin && \
   rm -rf $KIBANA_HOME/node_modules/re2 && \
+  mkdir -p $NODE_BUILD_HOME && \
   npm install re2 && \
-  mv ~/node_module/re2 $KIBANA_HOME/node_modules && \
+  cd - && \
+  mv $NODE_BUILD_HOME/node_module/re2 $KIBANA_HOME/node_modules && \
   rm -rf node.tgz && \
   rm -rf kibana.tgz && \
   sed -i "s/.*NODE\=.*/NODE=\/usr\/bin\/node/g" $KIBANA_HOME/bin/kibana && \
