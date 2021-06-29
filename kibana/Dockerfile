@@ -30,7 +30,8 @@ RUN chmod +x /kibana_env.sh && \
   ln -s $NODE_HOME/bin/npm /usr/bin && \
   rm -rf $KIBANA_HOME/node_modules/re2 && \
   mkdir -p $NODE_BUILD_HOME && \
-  npm install re2 && \
+  cd $NODE_BUILD_HOME && \
+  npm ci re2 && \
   cd - && \
   mv $NODE_BUILD_HOME/node_modules/re2 $KIBANA_HOME/node_modules && \
   rm -rf node.tgz && \
