@@ -12,6 +12,3 @@ export PATH="${PATH}:${ES_HOME}/bin"
 mkdir -p "${ES_LOG_DIR}"
 mkdir -p "${ES_DATA_DIR}"
 mkdir -p "${ES_TMP_DIR}"
-
-source /elastic_classpath.sh
-set_es_classpath
