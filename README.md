@@ -7,7 +7,7 @@ The docker images are built on a raspberry pi gitlab runner.
 ## Available apps
 
 * Kibana v7.13.2
-* ElasticSearch v7.13.2
+* Elasticsearch v7.13.2
 * ElastAlert
 * Elastic Indices Lifecyle : the [elastic-indices-lifecycle](https://gitlab.comwork.io/oss/elasticstack/elastic-indices-lifecycle)
 
