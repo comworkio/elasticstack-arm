@@ -4,6 +4,8 @@ This project aims to provide docker images that will run on ARM achitecture (lik
 
 The docker images are built on a raspberry pi gitlab runner.
 
+If you're a French speaker, you'll find a demo on the ElasticFR meetup [here](https://youtu.be/BC1iSnoe15k).
+
 ## Available apps
 
 * Kibana v7.13.2
