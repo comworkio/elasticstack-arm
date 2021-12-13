@@ -35,9 +35,9 @@ You also can pull the images directly with the tags below.
 ```shell
 docker pull comworkio/elasticsearch:latest-arm
 docker pull comworkio/elasticsearch:7.16.1-arm
-docker pull comworkio/elasticsearch:7.16.1-1.1-arm
+docker pull comworkio/elasticsearch:7.16.1-1.13-arm
 docker pull comworkio/elasticsearch:7.16.1-arm-{sha}
-docker pull comworkio/elasticsearch:7.16.1-1.1-arm-{sha}
+docker pull comworkio/elasticsearch:7.16.1-1.13-arm-{sha}
 ```
 
 ### Kibana
