@@ -25,7 +25,7 @@ RUN groupadd elasticsearch -g $PI_GID && \
   useradd -rm -d /home/elasticsearch -s /bin/bash -g elasticsearch -G root,sudo -u $PI_UID elasticsearch && \
   echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers && \
   sed -i "s/VAL_ES_HOME/${ES_HOME}/g;s/VAL_JAVA_VERSION/${JAVA_VERSION}/g;s/VAL_ES_HOST/${ES_HOST}/g;s/VAL_ES_ARCH/${ES_ARCH}/g" /elastic_env.sh && \
-  sed -i "s/VAL_ES_VERSION/${ES_VERSION}/g;s/VAL_ES_DISCOVERY_TYPE/${ES_DISCOVERY_TYPE}/g;s/VAL_ES_HTTP_PORT/${ES_HTTP_PORT}/g" /elastic_env.sh && \
+  sed -i "s/VAL_ES_VERSION/${ES_VERSION}/g;s/VAL_ES_DISCOVERY_TYPE/${ES_DISCOVERY_TYPE}/g;s/VAL_ES_HTTP_PORT/${ES_HTTP_PORT}/g;s/VAL_ES_OS/${ES_OS}/g" /elastic_env.sh && \
   sed -i "s/VAL_ES_NODE_NAME/${ES_NODE_NAME}/g;s/VAL_ES_HEAP/${ES_HEAP}/g;s/VAL_ES_TRANSPORT_PORT/${ES_TRANSPORT_PORT}/g;s/VAL_ES_EXEC/${ES_EXEC}/g" /elastic_env.sh && \
   chmod +x /elastic_env.sh && \
   chmod +x /elastic_start.sh && \
