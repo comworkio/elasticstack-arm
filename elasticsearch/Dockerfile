@@ -31,7 +31,7 @@ RUN chmod +x /elastic_env.sh && \
   echo $ES_EXEC -E node.name=$ES_NODE_NAME -E cluster.name=$ES_NODE_NAME -E transport.tcp.port=$ES_TRANSPORT_PORT -E transport.host=$ES_HOST -E http.port=$ES_HTTP_PORT -E network.host=$ES_HOST -E discovery.type=$ES_DISCOVERY_TYPE -E xpack.security.enabled=false -E xpack.ml.enabled=false -E xpack.graph.enabled=false -E xpack.monitoring.enabled=false -E xpack.enrich.enabled=false -E xpack.watcher.enabled=false > $ES_HOME/es_start.sh && \
   chmod +x $ES_HOME/es_start.sh && \
   useradd -rm -d /home/elastic -s /bin/bash -g root -G sudo -u 1001 elastic && \
-  chown -R elastic:elastic $ES_HOME
+  chown -R elastic $ES_HOME
 
 VOLUME [ "/usr/share/elasticsearch/data" ]
 
