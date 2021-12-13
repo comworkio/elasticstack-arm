@@ -1,5 +1,7 @@
 ARG BALENA_DEBIAN_TAG=buster
 ARG BALENA_DEBIAN_DIGEST=sha256:b32c2579e735f8257211c9b2c2eeab6db199907e138380833dbe2515cc6878e3
+ARG PI_UID=1000
+ARG PI_GID=1000
 
 FROM balenalib/raspberrypi3-debian:${BALENA_DEBIAN_TAG}@${BALENA_DEBIAN_DIGEST} AS base
 
@@ -18,8 +20,8 @@ ENV ES_VERSION=7.16.1 \
 
 COPY ./elastic_env.sh ./elastic_start.sh /
 
-RUN groupadd elasticsearch && \
-  useradd -rm -d /home/elasticsearch -s /bin/bash -g elasticsearch -G sudo -u 1001 elasticsearch && \
+RUN groupadd elasticsearch -g $PI_GID && \
+  useradd -rm -d /home/elasticsearch -s /bin/bash -g elasticsearch -G root,sudo -u $PI_UID elasticsearch && \
   chmod +x /elastic_env.sh && \
   chmod +x /elastic_start.sh && \
   apt-get update && \

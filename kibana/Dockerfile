@@ -21,7 +21,7 @@ COPY ./kibana_env.sh ./kibana_start.sh ./package.json /
 RUN chmod +x /kibana_env.sh && \
   chmod +x /kibana_start.sh && \
   apt-get update && \
-  apt-get -qy install bash curl ca-certificates openjdk-$JAVA_VERSION-jdk openjdk-$JAVA_VERSION-jre python3 python3-pip && \
+  apt-get -qy install build-essential bash curl ca-certificates openjdk-$JAVA_VERSION-jdk openjdk-$JAVA_VERSION-jre python3 python3-pip && \
   curl -fsSL https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$NODE_ARCH.tar.gz  -o node.tgz && \
   curl -fsSL https://artifacts.elastic.co/downloads/kibana/kibana-$ES_VERSION-$ES_OS-$ES_ARCH.tar.gz -o kibana.tgz && \
   tar xvzf kibana.tgz > /dev/null 2>&1 && \
@@ -53,7 +53,7 @@ RUN chmod +x /kibana_env.sh && \
   echo "xpack.security.enabled: false" >> $KIBANA_HOME/config/kibana.yml && \
   echo "server.host: KIBANA_HOST" >> $KIBANA_HOME/config/kibana.yml && \
   echo "elasticsearch.hosts: [\"ES_PROTO://ES_HOST:ES_PORT\"]" >> $KIBANA_HOME/config/kibana.yml && \
-  apt-get -qy remove python3 python3-pip curl
+  apt-get -qy remove build-essential python3 python3-pip curl
 
 EXPOSE 5601
 
