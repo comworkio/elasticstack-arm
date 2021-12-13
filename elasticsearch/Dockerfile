@@ -23,7 +23,7 @@ RUN groupadd elasticsearch && \
   chmod +x /elastic_env.sh && \
   chmod +x /elastic_start.sh && \
   apt-get update && \
-  apt-get -qy install bash curl ca-certificates openjdk-$JAVA_VERSION-jdk openjdk-$JAVA_VERSION-jre telnet net-tools && \
+  apt-get -qy install bash curl ca-certificates openjdk-$JAVA_VERSION-jdk openjdk-$JAVA_VERSION-jre && \
   curl -fsSL https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-$ES_VERSION-$ES_OS-$ES_ARCH.tar.gz -o elasticsearch.tgz && \
   tar xvzf elasticsearch.tgz > /dev/null 2>&1 && \
   mv elasticsearch-$ES_VERSION $ES_HOME && \
@@ -33,7 +33,8 @@ RUN groupadd elasticsearch && \
   echo $ES_EXEC -E node.name=$ES_NODE_NAME -E cluster.name=$ES_NODE_NAME -E transport.tcp.port=$ES_TRANSPORT_PORT -E transport.host=$ES_HOST -E http.port=$ES_HTTP_PORT -E network.host=$ES_HOST -E discovery.type=$ES_DISCOVERY_TYPE -E xpack.security.enabled=false -E xpack.ml.enabled=false -E xpack.graph.enabled=false -E xpack.monitoring.enabled=false -E xpack.enrich.enabled=false -E xpack.watcher.enabled=false > $ES_HOME/es_start.sh && \
   chmod +x $ES_HOME/es_start.sh && \
   chown -R elasticsearch:elasticsearch $ES_HOME && \
-  chmod -R 755 $ES_HOME
+  chmod -R 755 $ES_HOME && \
+  apt-get remove -qy curl
 
 USER elasticsearch
 
