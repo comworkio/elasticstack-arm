@@ -32,8 +32,8 @@ RUN chmod +x /kibana_env.sh && \
   ln -s $NODE_HOME/bin/npm /usr/bin && \
   rm -rf $KIBANA_HOME/node_modules/re2 && \
   npm init && \
-  npm install re2 && \
-  mv node_modules/re2 $KIBANA_HOME/node_modules && \
+  npm install -g re2 && \
+  mv /usr/local/lib/node_modules/re2 $KIBANA_HOME/node_modules && \
   rm -rf node_modules && \
   rm -rf re2.tgz && \
   rm -rf node.tgz && \
