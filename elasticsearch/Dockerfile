@@ -26,6 +26,7 @@ RUN groupadd elasticsearch -g $PI_GID && \
   echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers && \
   chmod +x /elastic_env.sh && \
   chmod +x /elastic_start.sh && \
+  chmod +x /elastic_init.sh && \
   apt-get update && \
   apt-get -qy install bash curl ca-certificates openjdk-$JAVA_VERSION-jdk openjdk-$JAVA_VERSION-jre && \
   curl -fsSL https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-$ES_VERSION-$ES_OS-$ES_ARCH.tar.gz -o elasticsearch.tgz && \
