@@ -2,8 +2,11 @@ version: "3.3"
 
 services:
   es01:
-    image: comworkio/elasticsearch:7.9.1-1.8-arm
+    image: comworkio/elasticsearch:7.16.1-1.1-arm
     container_name: es01
+    build:
+      context: elasticsearch
+      dockerfile: Dockerfile
     ports:
       - 9200:9200
       - 9300:9300
@@ -12,8 +15,11 @@ services:
     volumes:
       - data01:/usr/share/elasticsearch/data
   kib01:
-    image: comworkio/kibana:7.9.1-1.9-arm
+    image: comworkio/kibana:7.16.1-1.1-arm
     container_name: kib01
+    build:
+      context: kibana
+      dockerfile: Dockerfile
     ports:
       - 5601:5601
     environment:
@@ -21,7 +27,7 @@ services:
       - ES_HOST=es01
       - ES_PORT=9200
     networks:
-      - covidelasticstacknet19
+      - elasticstacknet
     depends_on: 
       - es01
 

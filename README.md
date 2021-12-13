@@ -8,8 +8,8 @@ If you're a French speaker, you'll find a demo on the ElasticFR meetup [here](ht
 
 ## Available apps
 
-* Kibana v7.13.2
-* Elasticsearch v7.13.2
+* Kibana v7.16.1
+* Elasticsearch v7.16.1
 * ElastAlert
 * Elastic Indices Lifecyle : the [elastic-indices-lifecycle](https://gitlab.comwork.io/oss/elasticstack/elastic-indices-lifecycle)
 
@@ -34,20 +34,20 @@ You also can pull the images directly with the tags below.
 
 ```shell
 docker pull comworkio/elasticsearch:latest-arm
-docker pull comworkio/elasticsearch:7.13.2-arm
-docker pull comworkio/elasticsearch:7.13.2-1.1-arm
-docker pull comworkio/elasticsearch:7.13.2-arm-{sha}
-docker pull comworkio/elasticsearch:7.13.2-1.1-arm-{sha}
+docker pull comworkio/elasticsearch:7.16.1-arm
+docker pull comworkio/elasticsearch:7.16.1-1.1-arm
+docker pull comworkio/elasticsearch:7.16.1-arm-{sha}
+docker pull comworkio/elasticsearch:7.16.1-1.1-arm-{sha}
 ```
 
 ### Kibana
 
 ```shell
 docker pull comworkio/kibana:latest-arm
-docker pull comworkio/kibana:7.13.2-arm
-docker pull comworkio/kibana:7.13.2-1.7-arm
-docker pull comworkio/kibana:7.13.2-arm-{sha}
-docker pull comworkio/kibana:7.13.2-1.7-arm-{sha}
+docker pull comworkio/kibana:7.16.1-arm
+docker pull comworkio/kibana:7.16.1-1.7-arm
+docker pull comworkio/kibana:7.16.1-arm-{sha}
+docker pull comworkio/kibana:7.16.1-1.7-arm-{sha}
 ```
 
 ### Elastalert
