@@ -16,13 +16,14 @@ ENV ES_VERSION=7.16.1 \
     JAVA_VERSION=11 \
     ES_HOME=/usr/share/elasticsearch
 
-COPY ./elastic_env.sh ./elastic_start.sh /
+COPY ./elastic_env.sh ./elastic_start.sh ./elastic_init.sh /
 
-ARG PI_UID=1000
-ARG PI_GID=1000
+ARG PI_UID=1001
+ARG PI_GID=1001
 
 RUN groupadd elasticsearch -g $PI_GID && \
   useradd -rm -d /home/elasticsearch -s /bin/bash -g elasticsearch -G root,sudo -u $PI_UID elasticsearch && \
+  echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers && \
   chmod +x /elastic_env.sh && \
   chmod +x /elastic_start.sh && \
   apt-get update && \
@@ -39,10 +40,8 @@ RUN groupadd elasticsearch -g $PI_GID && \
   chmod -R 755 $ES_HOME && \
   apt-get remove -qy curl
 
-USER elasticsearch
-
 EXPOSE 9200 9300
 
 VOLUME [ "/usr/share/elasticsearch/data" ]
 
-CMD [ "/elastic_start.sh" ]
+CMD [ "/elastic_init.sh" ]
