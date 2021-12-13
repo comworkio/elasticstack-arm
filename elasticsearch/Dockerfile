@@ -18,8 +18,8 @@ ENV ES_VERSION=7.16.1 \
 
 COPY ./elastic_env.sh ./elastic_start.sh ./elastic_init.sh /
 
-ARG PI_UID=1001
-ARG PI_GID=1001
+ARG PI_UID=1000
+ARG PI_GID=1000
 
 RUN groupadd elasticsearch -g $PI_GID && \
   useradd -rm -d /home/elasticsearch -s /bin/bash -g elasticsearch -G root,sudo -u $PI_UID elasticsearch && \

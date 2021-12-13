@@ -1,5 +1,6 @@
 #!/bin/bash
 
+export ES_HOME="/usr/share/elasticsearch"
 export ES_LOG_DIR="${ES_HOME}/logs"
 export ES_DATA_DIR="${ES_HOME}/data"
 export ES_TMP_DIR="${ES_HOME}/tmp"
