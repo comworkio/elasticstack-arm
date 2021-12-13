@@ -24,6 +24,7 @@ ARG PI_GID=1000
 RUN groupadd elasticsearch -g $PI_GID && \
   useradd -rm -d /home/elasticsearch -s /bin/bash -g elasticsearch -G root,sudo -u $PI_UID elasticsearch && \
   echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers && \
+  sed -i "s/VAL_ES_HOME/${ES_HOME}/g;s/VAL_JAVA_VERSION/${JAVA_VERSION}/g" /elastic_env.sh && \
   chmod +x /elastic_env.sh && \
   chmod +x /elastic_start.sh && \
   chmod +x /elastic_init.sh && \
