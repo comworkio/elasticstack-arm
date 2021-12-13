@@ -16,7 +16,7 @@ ENV ES_VERSION=7.16.1 \
     NODE_VERSION=16.13.0 \
     NODE_ARCH=armv7l
 
-COPY ./kibana_env.sh ./kibana_start.sh ./re2build /
+COPY ./kibana_env.sh ./kibana_start.sh ./package.json /
 
 RUN chmod +x /kibana_env.sh && \
   chmod +x /kibana_start.sh && \
@@ -31,11 +31,13 @@ RUN chmod +x /kibana_env.sh && \
   ln -s $NODE_HOME/bin/node /usr/bin && \
   ln -s $NODE_HOME/bin/npm /usr/bin && \
   rm -rf $KIBANA_HOME/node_modules/re2 && \
-  cd /re2build && \
+  mkdir -p re2build && \
+  mv /package.json re2build && \
+  cd re2build && \
   npm install re2 && \
   mv node_modules/re2 $KIBANA_HOME/node_modules && \
-  cd - && \
-  rm -rf /re2build && \
+  cd .. && \
+  rm -rf re2build && \
   rm -rf node.tgz && \
   rm -rf kibana.tgz && \
   sed -i "s/.*NODE\=.*/NODE=\/usr\/bin\/node/g" $KIBANA_HOME/bin/kibana && \

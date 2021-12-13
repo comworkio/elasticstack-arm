@@ -72,4 +72,3 @@ hs_err_pid*.log
 *.pem
 
 node_modules
-package.sjon

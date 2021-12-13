@@ -35,10 +35,10 @@ RUN groupadd elasticsearch && \
   chown -R elasticsearch:elasticsearch $ES_HOME && \
   chmod -R 755 $ES_HOME
 
-VOLUME [ "/usr/share/elasticsearch/data" ]
+USER elasticsearch
 
 EXPOSE 9200 9300
 
-USER elasticsearch
+VOLUME [ "/usr/share/elasticsearch/data" ]
 
 CMD [ "/elastic_start.sh" ]
