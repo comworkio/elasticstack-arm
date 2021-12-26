@@ -8,7 +8,7 @@ mirror:
   only:
     - /^(master.*)$/
   tags:
-    - elasticlifecycle
+    - mirror
 
 elastalert-arm:
   stage: publish
