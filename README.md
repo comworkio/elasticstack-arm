@@ -18,6 +18,7 @@ If you're a French speaker, you'll find a demo on the ElasticFR meetup [here](ht
 * main repo: https://gitlab.comwork.io/oss/elasticstack/elasticstack-arm
 * github backup mirror: https://github.com/idrissneumann/elasticstack-arm
 * gitlab backup mirror: https://gitlab.com/ineumann/elasticstack-arm
+* bitbucket backup mirror: https://bitbucket.org/idrissneumann/elasticstack-arm
 
 ## Docker repositories
 
