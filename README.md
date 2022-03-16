@@ -56,6 +56,6 @@ docker pull comworkio/kibana:7.16.1-1.7-arm-{sha}
 
 ```shell
 docker pull comworkio/elastalert:latest-arm
-docker pull comworkio/elastalert:1.0-arm
-docker pull comworkio/elastalert:1.0-arm-{sha}
+docker pull comworkio/elastalert:1.2-arm
+docker pull comworkio/elastalert:1.2-arm-{sha}
 ```
