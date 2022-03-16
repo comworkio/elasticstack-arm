@@ -33,3 +33,5 @@ tag_and_push "${VERSION}-${ARCH}" "${IMAGE}"
 [[ $INTERNAL_VERSION ]] && tag_and_push "${VERSION}-${INTERNAL_VERSION}-${ARCH}" "${IMAGE}"
 tag_and_push "${VERSION}-${ARCH}-${CI_COMMIT_SHORT_SHA}" "${IMAGE}"
 [[ $INTERNAL_VERSION ]] && tag_and_push "${VERSION}-${INTERNAL_VERSION}-${ARCH}-${CI_COMMIT_SHORT_SHA}" "${IMAGE}"
+
+exit 0
