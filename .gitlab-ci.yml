@@ -13,7 +13,7 @@ mirror:
 elastalert-arm:
   stage: publish
   script:
-    - setsid ./ci/docker-deliver.sh "arm" "elastalert" "1.0"
+    - setsid ./ci/docker-deliver.sh "arm" "elastalert" "1.1"
   only:
     refs:
       - /^(master.*)$/
